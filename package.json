@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "copy": "rm -rf docs && cp -R dist docs",
+    "deploy": "npm run build && npm run copy"
   },
   "dependencies": {
     "react": "^19.2.0",
