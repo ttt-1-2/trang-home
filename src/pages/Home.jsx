@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import TreeSvg from "../assets/home-tree.svg?react";
-import CoffeeSvg from "../assets/home-coffee.svg?react";
+import Bulbon from "../assets/bulbon.png";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -10,10 +10,10 @@ export default function Home() {
 
   const cards = [
     {
-      id: "coffee",
-      to: "#",
-      icon: <CoffeeSvg />,
-      hoverLabel: "coffee\npomodoro",
+      id: "bitball",
+      to: "/bitball",
+      icon: <img src={Bulbon} alt="BitBall" />,
+      hoverLabel: "BitBall",
       overlay: "#C97373",
     },
     {
@@ -68,7 +68,7 @@ export default function Home() {
           <Card
             key={c.id}
             type="button"
-            onClick={() => navigate(c.to)}
+            onClick={() => c.to !== "#" && navigate(c.to)}
             aria-label={c.hoverLabel?.replace("\n", " ")}
             $overlay={c.overlay}
           >
@@ -243,6 +243,13 @@ const CardIcon = styled.div`
   display: grid;
   place-items: center;
   z-index: 1;
+
+  img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
 `;
 
 const ComingText = styled.div`
